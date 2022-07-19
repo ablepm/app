@@ -1,6 +1,4 @@
-import os, sys, platform, random
-
-os = platform.system()
+import os, sys, random
 
 # download the database and store it in the temp/AblePm/db folder
 os.system("python updatedb.py")
