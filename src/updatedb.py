@@ -1,4 +1,4 @@
-import random, os
+import random, os, platform
 
 # if it is the first time calling it, make a installed_packages.txt file
 if not os.path.isfile("installed_packages.txt"):
@@ -8,12 +8,12 @@ if not os.path.isfile("installed_packages.txt"):
 # random number
 rnd = random.randint(0, 100)
 
-# if, in the temporary directory, "/AblePm/db" does not exist, then
-if not os.path.exists("./temp/AblePm/db"):
-    os.makedirs("./temp/AblePm/db")
+# if, in the temporary directory, "/AblePm/db" does not exist, then make it
+if not os.path.exists(os.path.join(os.getenv("TEMP"), "AblePm", "db")):
+    os.makedirs(os.path.join(os.getenv("TEMP"), "AblePm", "db"))
 
-# go to /temp/AblePm/db
-os.chdir("./temp/AblePm/db")
+# go to /temp/AblePm/db (or /var/tmp/AblePm/db)
+os.chdir(os.path.join(os.getenv("TEMP"), "AblePm", "db"))
 
 # clear the contents of the directory
 for file in os.listdir():
