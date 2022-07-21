@@ -30,4 +30,5 @@ with open("installed_packages.txt", "r") as f:
     installed_packages = f.read()
     installed_packages = installed_packages.split("\n")
     installed_packages = list(filter(None, installed_packages))
+
 # AblePM database is updated
