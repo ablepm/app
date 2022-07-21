@@ -1,7 +1,7 @@
 import os, sys, random
 
 # download the database and store it in the temp/AblePm/db folder
-os.system("python updatedb.py")
+os.system("python3 " + os.path.dirname(os.path.realpath(__file__)) + "/updatedb.py")
 
 # by default, if no argument is passed, the program will just tell you to do -h to see the help menu
 if len(sys.argv) == 1:
@@ -35,9 +35,9 @@ if sys.argv[1] == "-i" and len(sys.argv) == 2:
 # if the user provides -i with a package name, then the program will get the install.py file from the database and run it
 if sys.argv[1] == "-i" and len(sys.argv) == 3:
     # update the database
-    os.system("python3 updatedb.py")
+    os.system("python3 " + os.path.dirname(os.path.realpath(__file__)) + "/updatedb.py")
     # get the /[package name]/install.py file from the database
-    os.system("python3 ./temp/AblePm/db/" + sys.argv[2] + "/install.py")
+    os.system("python3 " + os.path.dirname(os.path.realpath(__file__)) + "/temp/AblePm/db/" + sys.argv[2] + "/install.py")
 
 
 # if the user provides -u without a package name, then the program will tell you to provide a package name
@@ -49,7 +49,7 @@ if sys.argv[1] == "-u" and len(sys.argv) == 3:
     # uninstall the package
     os.system("python3 remove.py " + sys.argv[2])
     # update the database
-    os.system("python3 updatedb.py")
+    os.system("python3 " + os.path.dirname(os.path.realpath(__file__)) + "/updatedb.py")
     # install the package
     os.system("python3 install.py " + sys.argv[2])
 
@@ -62,7 +62,7 @@ if sys.argv[1] == "-r" and len(sys.argv) == 3:
     # uninstall the package
     os.system("python3 remove.py " + sys.argv[2])
     # update the database
-    os.system("python3 updatedb.py")
+    os.system("python3 " + os.path.dirname(os.path.realpath(__file__)) + "/updatedb.py")
 
 # if the user provides -l, then the program will list all installed packages
 if sys.argv[1] == "-l":
